@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Register</h2>
+        <form action="register.php" method="POST" onsubmit="return validateForm()">
+            <label>Username:</label>
+            <input type="text" name="username" required>
+
+            <label>Email:</label>
+            <input type="email" name="email" required>
+
+            <label>Password:</label>
+            <input type="password" name="password" id="password" required>
+
+            <label>Confirm Password:</label>
+            <input type="password" name="confirm_password" id="confirm_password" required>
+
+            <label>Gender:</label>
+            <select name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="login.html">Login here</a></p>
+    </div>
+
+    <script>
+        function validateForm() {
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirm_password").value;
+
+            // Check if the password fields match
+            if (password === "") {
+                alert("Password cannot be empty!");
+                return false;
+            }
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match!");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+
+</html>
